@@ -9,7 +9,7 @@
 
  <p>タイトル</p>
  <!--indexにshowへのリンクを作る際に削除-->
- <!--<span><%= list.title %></span>-->
+ <!--<span><%#= list.title %></span>-->
  <!--ここは4/6時点では理解不十分-->
  <span>
    <!--indexのlink_toを名前付きに変更-->
@@ -18,5 +18,12 @@
    <!--変更後-->
    <%= link_to list.title, list_path(list.id) %>
  </span>
+ 
+ <p>画像</p>
+ <% if list.image.attached? %>
+  <%= image_tag list.image, size:"200×200" %>
+ <% else %>
+  <%= image_tag 'no_image', size: "200×200" %>
+ <% end %>
 
 <% end %>
