@@ -1,2 +1,14 @@
-<h1>Lists#index</h1>
-<p>Find me in app/views/lists/index.html.erb</p>
+<!--ビューファイル記述-->
+<!--以下部分は書き換え元-->
+<!--<h1>Lists#index</h1>-->
+<!--<p>Find me in app/views/lists/index.html.erb</p>-->
+
+<h1>投稿一覧</h1>
+
+<% @lists.each do |list| %>
+
+ <p>タイトル</p>
+ <span><%= list.title %></span>
+ <!--ここは4/6時点では理解不十分-->
+
+<% end %>
