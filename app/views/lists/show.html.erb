@@ -7,3 +7,5 @@
 
 <h2>本文</h2>
 <p><%= @list.body %></p>
+<!--編集画面へのリンクを追加-->
+<%= link_to "編集",edit_list_path(@list.id) %>
