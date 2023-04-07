@@ -7,14 +7,22 @@ class ListsController < ApplicationController
   
   # 保存機能追加
   def create
+    # 以下はバリデーションの際に削除
     # １.&2. データを受け取り新規登録するためのインスタンス作成
-    list = List.new(list_params)
-    # 3. データをデータベースに保存するためのsaveメソッド実行
-    list.save
-    # 4. トップ画面へリダイレクト
-    # 「top」から「show.html.erb」へリダイレクトを変更する際に書き換え
-    # redirect_to '/top'
-    redirect_to list_path(list.id)
+    # list = List.new(list_params)
+    # # 3. データをデータベースに保存するためのsaveメソッド実行
+    # list.save
+    # # 4. トップ画面へリダイレクト
+    # # 「top」から「show.html.erb」へリダイレクトを変更する際に書き換え
+    # # redirect_to '/top'
+    # redirect_to list_path(list.id)
+    # 以下はバリデーションの際に変更
+    @list = List.new(list_params)
+    if @list.save
+      redirect_to list_path(@list.id)
+    else
+      render :new
+    end
   end
 
   def index

@@ -5,6 +5,15 @@
 <!--<p>Find me in app/views/lists/new.html.erb</p>-->
 
 <h1>新規投稿</h1>
+<!--バリデーションによるエラーメッセージを追記-->
+<% if @list.errors.any? %>
+ <%= @list.errors.count %>件のエラーが発生しました
+ <ul>
+  <% @list.errors.full_messages.each do |message| %>
+   <li><%= message %></li>
+  <% end %>
+ </ul>
+<% end %>
 <!--form_with部分-->
 <!--インスタンス変数に変更-->
 <!--<%#= form_with model:@list do|f| %>-->
