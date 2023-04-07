@@ -11,10 +11,13 @@
 <!--ビューで画像を表示するための記述-->
 <h2>画像</h2>
 <% if @list.image.attached? %>
- <%=  image_tag @list.image,size: "300×300" %>
+ <%= image_tag @list.image,size: "300×300" %>
 <% else %>
- <%= image?tag 'no_image',size:"300×300" %>
+ <%= image_tag 'no_image',size:"300×300" %>
 <% end %>
 
 <!--編集画面へのリンクを追加-->
 <%= link_to "編集",edit_list_path(@list.id) %>
+<!--「destroy」アクションのHTTPメソッドをDELETEに指定。削除確認ダイアログも表示-->
+<!--「destroy_list_path」を「list_path」に変更-->
+<%= link_to "削除",list_path(@list.id),method: :delete,"data-comfirm" =>"本当に削除しますか？" %>
